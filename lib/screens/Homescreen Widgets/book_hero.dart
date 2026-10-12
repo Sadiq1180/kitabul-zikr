@@ -18,87 +18,73 @@ class BookHeroCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(24),
-        splashColor: _gold.withValues(alpha: 0.12),
-        child: Ink(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(24),
-            gradient: const LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [_darkGreen, _green, Color(0xFF075943)],
+      child: Ink(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(24),
+          gradient: const LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [_darkGreen, _green, Color(0xFF075943)],
+          ),
+          border: Border.all(color: _gold.withValues(alpha: 0.65), width: 1.2),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.20),
+              blurRadius: 18,
+              offset: const Offset(0, 8),
             ),
-            border: Border.all(
-              color: _gold.withValues(alpha: 0.65),
-              width: 1.2,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.20),
-                blurRadius: 18,
-                offset: const Offset(0, 8),
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(23),
+          child: Stack(
+            children: [
+              Positioned(top: -40, right: -40, child: _circle(120, 0.07)),
+              Positioned(bottom: -45, left: -40, child: _circle(115, 0.06)),
+              Positioned(
+                top: 45,
+                left: -15,
+                child: Transform.rotate(angle: math.pi / 4, child: _square(30)),
+              ),
+              Positioned(
+                bottom: 40,
+                right: -15,
+                child: Transform.rotate(angle: math.pi / 4, child: _square(30)),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 12, 16, 13),
+                child: Column(
+                  children: [
+                    _header(),
+
+                    const SizedBox(height: 8),
+
+                    _bookSeal(),
+
+                    const SizedBox(height: 5),
+
+                    _title(),
+
+                    const SizedBox(height: 6),
+
+                    _description(),
+
+                    const SizedBox(height: 7),
+
+                    _features(),
+
+                    const SizedBox(height: 9),
+
+                    _goldDivider(),
+
+                    const SizedBox(height: 9),
+
+                    ReadNowButton(onTap: onTap),
+                  ],
+                ),
               ),
             ],
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(23),
-            child: Stack(
-              children: [
-                Positioned(top: -40, right: -40, child: _circle(120, 0.07)),
-                Positioned(bottom: -45, left: -40, child: _circle(115, 0.06)),
-                Positioned(
-                  top: 45,
-                  left: -15,
-                  child: Transform.rotate(
-                    angle: math.pi / 4,
-                    child: _square(30),
-                  ),
-                ),
-                Positioned(
-                  bottom: 40,
-                  right: -15,
-                  child: Transform.rotate(
-                    angle: math.pi / 4,
-                    child: _square(30),
-                  ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 12, 16, 13),
-                  child: Column(
-                    children: [
-                      _header(),
-
-                      const SizedBox(height: 8),
-
-                      _bookSeal(),
-
-                      const SizedBox(height: 5),
-
-                      _title(),
-
-                      const SizedBox(height: 6),
-
-                      _description(),
-
-                      const SizedBox(height: 7),
-
-                      _features(),
-
-                      const SizedBox(height: 9),
-
-                      _goldDivider(),
-
-                      const SizedBox(height: 9),
-
-                      ReadNowButton(onTap: onTap),
-                    ],
-                  ),
-                ),
-              ],
-            ),
           ),
         ),
       ),

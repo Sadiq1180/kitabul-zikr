@@ -139,26 +139,17 @@ class _InfoText extends StatelessWidget {
 
         const SizedBox(height: 2),
 
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              width: 18,
-              height: 1,
-              color: _gold.withValues(alpha: 0.65),
-            ),
-            const SizedBox(width: 5),
-            const Text(
-              'صدقہ جاریہ میں حصہ لیں',
-              style: TextStyle(
-                color: _lightGold,
-                fontSize: 11.5,
-                fontWeight: FontWeight.w500,
-                height: 1.4,
-              ),
-            ),
-          ],
-        ),
+        // Row(
+        //   mainAxisSize: MainAxisSize.min,
+        //   children: [
+        //     Container(
+        //       width: 18,
+        //       height: 1,
+        //       color: _gold.withValues(alpha: 0.65),
+        //     ),
+        //     const SizedBox(width: 5),
+        //   ],
+        // ),
       ],
     );
   }
